@@ -1,14 +1,14 @@
 version: "3.3"
 
 services:
-#  postgres_db:
-#    image: postgres:latest
-#    environment:
-#      POSTGRES_DB: ${DB_NAME}
-#      POSTGRES_USER: ${DB_USER}
-#      POSTGRES_PASSWORD: ${DB_PASSWORD}
-#    volumes:
-#      - postgres_data:/var/lib/postgresql/data
+  postgres_db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
   web:
     build: .
@@ -33,5 +33,5 @@ services:
       - "80:80"
       - "443:443"
 
-#volumes:
-#  postgres_data:
+volumes:
+  postgres_data:
