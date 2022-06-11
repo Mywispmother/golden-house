@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS практика от AVIS TV</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+
+    <!-- Bootstrap reboot (для сброса стилей) -->
+    <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
+
+    <!-- Bootstrap сетка -->
+    <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
+
+    <!-- Шрифты с Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet">
+
+    <!-- Стили сайта -->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<style>
+    /**
+ * задний фон входа */
+
+ body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+/*обший форм Цетрирование*/
+.form{
+    width: 300px;
+    padding: 70px;
+    border-radius: 10;
+    box-shadow: 0 4px 16px #ccc;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+
+}
+.input__form,
+.button {
+   font-family: sans-serif;
+   letter-spacing: 1px;
+   font-size: 24px;
+   box-shadow: none;
+
+
+}
+
+/*загаловок*/
+.form__title {
+    text-align: center;
+    margin: 0 0 32px 0;
+    font-weight: normal;
+}
+
+.form__group {
+    position: relative;
+    margin-bottom: 32px;
+
+}
+.lable__name{
+    position:absolute;
+    top:0px;
+    z-index: -1;
+    color: #463f3f;
+    transition: 0.3s;
+}
+
+
+
+.button{
+width: 100%;
+text-align: center;
+   padding: 5px 60px ;
+   border: none;
+   border-radius: 8px;
+   color: #dadada;
+   background-color: #e47e0a;
+   outline: none;
+   cursor: pointer;
+   transition: 0.3s;
+
+}
+.button:focus,
+.button:hover{
+   background-color: #1a731a;
+   cursor: pointer;
+   justify-content: center;
+
+}
+.buton{
+position: absolute;
+top: 56%;
+left: 44%;
+}
+
+
+
+</style>
+<body>
+
+<div class="form">
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <table>
+            <form class="form">
+                <tr class="form__group">
+                    <td>Логин{{ form..label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+
+
+                <tr class="form__group">
+                    <td>Пароль{{ form.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+
+                <div class="buton">
+                    <input class="button " type="hidden" name="next" value="{{ next }}"/>
+                    <input class="button " type="submit" value="Вход"/>
+                </div>
+            </form>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

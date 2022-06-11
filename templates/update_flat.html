@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{%if request.user.username == object.user.username or request.user.username == 'admin' %}
+<form action="" method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type="submit" value="yes">
+</form>
+{%else%}<a href="/flats/">на главную</a>
+{%endif%}
+</body>
+</html>

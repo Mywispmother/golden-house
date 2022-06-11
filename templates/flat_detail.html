@@ -1,0 +1,287 @@
+<!doctype html>
+{%load static%}
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Album example · Bootstrap v5.2</title>
+
+
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" type="text/css">
+
+    <style>
+.slide{
+  width: 65%;
+  display: block;
+  margin: 0 auto;
+
+}
+ .shows__container{
+        max-width: 1000px;
+        margin-top: 50px;
+
+    }
+
+.col{
+  font-size: 20px;
+   margin-left: auto;
+    margin-right: auto;
+    width: 6em
+<!--  text-align: left;-->
+   ;
+
+
+
+}
+
+ .bg-color{
+        background-color: white
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgb(0, 0, 0);
+        border: solid rgba(0, 0, 0);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0), inset 0 .125em .5em rgba(0, 0, 0);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn {
+        font-size: 95%;
+
+      }
+
+
+.slide_kot{
+text-color:black;
+}
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+
+</head>
+<body>
+
+<header>
+    <div class="collapse bg-white" id="navbarHeader">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h4 class="text-white"></h4>
+
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                    <h4 class="text-black">Меню</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="/add_flat/" class="text-black">Добавить Кваритру</a></li>
+                        {%if request.user.username == 'admin'%}
+                        <li><a href="/admin/" class="text-black">Настройки Сайта</a></li>
+                        {%else%}
+                        {%endif%}
+
+                        {%if request.user.username == object.user.username or request.user.username == 'admin'%}
+                        <li><a href="update/" class="text-black">Редатировать</a></li>
+                        <li><a href="delete/" class="text-black">Удалить</a></li>
+                        {%else%}
+                        {%endif%}
+                        <li><a href="/accounts/logout/" class="text-black">Выйти</a></li>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="navbar navbar-white bg-color shadow-sm">
+        <div class="container">
+            <a href="/flats/" class="navbar-brand d-flex align-items-center">
+                <strong><img src="{%static 'logo.png'%}" alt=""></strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main>
+
+    <div class="album py-5 bg-white">
+        <div class="container shows__container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="slide shows__container">
+                    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
+                         data-bs-interval="false">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active shows__img">
+                                <img src="{{object.Фото.url}}" width="100%" alt="">
+                            </div>
+                            {%if object.Фото1.url != null %}
+                            <div class="carousel-item shows__img">
+                                <img src="{{object.Фото1.url}}" width="100%" alt="">
+                            </div>
+                            {%else%}
+
+                            {%endif%}
+                            {%if object.Фото2.url != null %}
+                            <div class="carousel-item shows__img">
+                                <img src="{{object.Фото2.url}}" width="100%" alt="">
+                            </div>
+                            {%else%}
+                            {%endif%}
+                            {%if object.Фото3.url != null %}
+                            <div class="carousel-item shows__img">
+                                <img src="{{object.Фото3.url}}" width="100%" alt="">
+                            </div>
+                            {%else%}
+                            {%endif%}
+                        </div>
+                        <button class="carousel-control-prev slide__kot" type="button"
+                                data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next slide__kot" type="button"
+                                data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                            <span class="carousel-control-next-icon " aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="info text-center">
+        <div class="container">
+            <div class="row row-cols-2 ">
+                <div class="col">
+                    <!-- Кнопка-триггер модального окна -->
+                    <button type="button" class="btn bg-white text-black;" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                        Цена: {{object.Цена}}
+                    </button>
+
+                    <!-- Модальное окно -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Закрыть"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Цена на руки {{object.Цена_наруки}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col">Комнат: {{ object.Комнат }}</div>
+                <div class="col"> Дом: {{object.Дом }}</div>
+                <div class="col">Адрес: {{ object.Адрес }}</div>
+                <div class="col">Тел: {{object.Телефон }}</div>
+                <div class="col">Подъезд: {{object.Подъезд }}</div>
+                <div class="col">Этаж: {{object.Этаж }}</div>
+                <div class="col">Район : {{object.Район }}</div>
+                <div class="col">Квартира: {{object.Квартира }}</div>
+                <div class="col">Дата изменения: {{object.Updated }}</div>
+                <div class="col"> Описание: {{object.Описание }}</div>
+                <div class="col">Дата создания: {{object.Date }}</div>
+                <div class="col"></div>
+                <div class="col">Пользователь: {{object.user }}</div>
+                <div class="col"></div>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+<footer class="text-muted py-5 ">
+    <div class="container">
+
+        <p class="float-end mb-1">
+            <a href="#">Верх</a>
+        </p>
+        <p class="mb-1 text-center"><img src="{%static 'logo.png'%}" alt=""></p>
+        <p class="mb-0 text-center">Агенство по продажам недвижимости</p>
+    </div>
+</footer>
+
+
+<link href="{% static 'js/bootstrap.bundle.min.js' %}" rel="alternate">
+
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>
