@@ -14,7 +14,7 @@
 
     <style>
 .slide{
-  width: 65%;
+  width: 80%;
   display: block;
   margin: 0 auto;
 
@@ -29,9 +29,11 @@
   font-size: 20px;
    margin-left: auto;
     margin-right: auto;
-    width: 6em
-<!--  text-align: left;-->
-   ;
+    width: 6em;
+    width: 350px;
+    word-break: break-all;
+    margin-right: 10%;
+
 
 
 
@@ -100,6 +102,9 @@
 .slide_kot{
 text-color:black;
 }
+
+
+
 
 
 
@@ -245,21 +250,36 @@ text-color:black;
                     </div>
 
 
+                    <div class="col">Комнат: {{ object.Комнат }}
+                        <div class="col"> Дом: {{object.Дом }}
+                            <div class="col">Подъезд: {{object.Подъезд }}
+                                <div class="col">Квартира: {{object.Квартира }}
+                                    <div class="col">Этаж: {{object.Этаж }}
+                                        <div class="col">Район : {{object.Район }}
+                                            <div class="col">Адрес: {{ object.Адрес }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
-                <div class="col">Комнат: {{ object.Комнат }}</div>
-                <div class="col"> Дом: {{object.Дом }}</div>
-                <div class="col">Адрес: {{ object.Адрес }}</div>
-                <div class="col">Тел: {{object.Телефон }}</div>
-                <div class="col">Подъезд: {{object.Подъезд }}</div>
-                <div class="col">Этаж: {{object.Этаж }}</div>
-                <div class="col">Район : {{object.Район }}</div>
-                <div class="col">Квартира: {{object.Квартира }}</div>
-                <div class="col">Дата изменения: {{object.Updated }}</div>
-                <div class="col"> Описание: {{object.Описание }}</div>
-                <div class="col">Дата создания: {{object.Date }}</div>
-                <div class="col"></div>
-                <div class="col">Пользователь: {{object.user }}</div>
-                <div class="col"></div>
+                <div class="col"> Описание: {{object.Описание }}
+                    <div class="col">Пользователь: {{object.user }}
+
+                        <div class="col">Дата изменения: {{object.Updated }}
+
+                            <div class="col">Дата создания: {{object.Date }}
+                                <div class="col">Тел: {{object.Телефон }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>
