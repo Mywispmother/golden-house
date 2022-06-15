@@ -7,14 +7,15 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.98.0">
-    <title>Album example · Bootstrap v5.2</title>
-
+    <title></title>
 
     <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" type="text/css">
 
+
+
     <style>
 .slide{
-  width: 80%;
+  width: 85%;
   display: block;
   margin: 0 auto;
 
@@ -116,6 +117,10 @@ text-color:black;
 
 
 
+
+
+
+
     </style>
 
 
@@ -136,12 +141,13 @@ text-color:black;
                         <li><a href="/add_flat/" class="text-black">Добавить Кваритру</a></li>
                         {%if request.user.username == 'admin'%}
                         <li><a href="/admin/" class="text-black">Настройки Сайта</a></li>
+                        <li><a href="delete/" class="text-black">Удалить</a></li>
                         {%else%}
                         {%endif%}
 
-                        {%if request.user.username == object.user.username or request.user.username == 'admin'%}
+                        {%if request.user.username == object.Сотрудники.username or request.user.username == 'admin'%}
                         <li><a href="update/" class="text-black">Редатировать</a></li>
-                        <li><a href="delete/" class="text-black">Удалить</a></li>
+
                         {%else%}
                         {%endif%}
                         <li><a href="/accounts/logout/" class="text-black">Выйти</a></li>
@@ -157,6 +163,8 @@ text-color:black;
     </div>
     </div>
     </div>
+
+
     <div class="navbar navbar-white bg-color shadow-sm">
         <div class="container">
             <a href="/flats/" class="navbar-brand d-flex align-items-center">
@@ -169,6 +177,7 @@ text-color:black;
         </div>
     </div>
 </header>
+
 
 <main>
 
@@ -187,8 +196,8 @@ text-color:black;
                                 <img src="{{object.Фото1.url}}" width="100%" alt="">
                             </div>
                             {%else%}
-
                             {%endif%}
+
                             {%if object.Фото2.url != null %}
                             <div class="carousel-item shows__img">
                                 <img src="{{object.Фото2.url}}" width="100%" alt="">
@@ -198,6 +207,36 @@ text-color:black;
                             {%if object.Фото3.url != null %}
                             <div class="carousel-item shows__img">
                                 <img src="{{object.Фото3.url}}" width="100%" alt="">
+                            </div>
+                            {%else%}
+                            {%endif%}
+                            {%if object.Фото4.url != null %}
+                            <div class="carousel-item shows__img">
+                                <img src="{{object.Фото4.url}}" width="100%" alt="">
+                            </div>
+                            {%else%}
+                            {%endif%}
+                            {%if object.Фото5.url != null %}
+                            <div class="carousel-item shows__img">
+                                <img src="{{object.Фото5.url}}" width="100%" alt="">
+                            </div>
+                            {%else%}
+                            {%endif%}
+                            {%if object.Фото6.url != null %}
+                            <div class="carousel-item shows__img">
+                                <img src="{{object.Фото6.url}}" width="100%" alt="">
+                            </div>
+                            {%else%}
+                            {%endif%}
+                            {%if object.Фото7.url != null %}
+                            <div class="carousel-item shows__img">
+                                <img src="{{object.Фото7.url}}" width="100%" alt="">
+                            </div>
+                            {%else%}
+                            {%endif%}
+                            {%if object.Фото8.url != null %}
+                            <div class="carousel-item shows__img">
+                                <img src="{{object.Фото8.url}}" width="100%" alt="">
                             </div>
                             {%else%}
                             {%endif%}
@@ -218,6 +257,8 @@ text-color:black;
             </div>
         </div>
     </div>
+
+
     <div class="info text-center">
         <div class="container">
             <div class="row row-cols-2 ">
@@ -249,17 +290,76 @@ text-color:black;
                         </div>
                     </div>
 
-
                     <div class="col">Комнат: {{ object.Комнат }}
-                        <div class="col"> Дом: {{object.Дом }}
-                            <div class="col">Подъезд: {{object.Подъезд }}
-                                <div class="col">Квартира: {{object.Квартира }}
-                                    <div class="col">Этаж: {{object.Этаж }}
-                                        <div class="col">Район : {{object.Район }}
-                                            <div class="col">Адрес: {{ object.Адрес }}
-                                            </div>
+                    </div>
+                    <div class="col">
+
+                        <!-- Кнопка-триггер модального окна -->
+                        <button type="button" class="btn bg-white text-black;" data-bs-toggle="modal"
+                                data-bs-target="#exampleModa1l">
+                            Дом:
+                        </button>
+
+                        <!-- Модальное окно -->
+                        <div class="modal fade" id="exampleModa1l" tabindex="-1" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Закрыть"></button>
+                                    </div>
+                                    <div class="modal-body 1">
+                                        Дом: {{ object.Дом }}
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                            Закрыть
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col">
+
+                            <!-- Кнопка-триггер модального окна -->
+                            <button type="button" class="btn bg-white text-black;" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal3">
+                                Подъезд: {{object.Подъезд }}
+
+                            </button>
+
+                            <!-- Модальное окно -->
+                            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Закрыть"></button>
+                                        </div>
+                                        <div class="modal-body 1">
+                                            Квартира: {{object.Квартира }}
+                                            <p> Этаж: {{object.Этаж }}</p>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                Закрыть
+                                            </button>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col">Район : {{object.Район }}
+                                <div class="col">Адрес: {{ object.Адрес }}
                                 </div>
                             </div>
                         </div>
@@ -268,12 +368,47 @@ text-color:black;
 
                 </div>
                 <div class="col"> Описание: {{object.Описание }}
-                    <div class="col">Пользователь: {{object.user }}
+                    <div class="col">Пользователь: {{object.Сотрудники }}
 
                         <div class="col">Дата изменения: {{object.Updated }}
 
                             <div class="col">Дата создания: {{object.Date }}
-                                <div class="col">Тел: {{object.Телефон }}
+                                <div class="col">
+                                    <!-- Кнопка-триггер модального окна -->
+                                    <button type="button" class="btn bg-white text-black;" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal2">
+                                        Тел: {{object.Телефон }}
+                                    </button>
+
+                                    <!-- Модальное окно -->
+                                    <div class="modal fade" id="exampleModal2" tabindex="-1"
+                                         aria-labelledby="exampleModalLabel"
+                                         aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Закрыть"></button>
+                                                </div>
+                                                {% if request.user.username == object.Сотрудники.username or request.user.username == 'admin' %}
+                                                <div class="modal-body">
+                                                    Телефон собственика {{object.Телефон_Соб}}
+                                                </div>
+                                                {%else%}
+                                                {%endif%}
+
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Закрыть
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>

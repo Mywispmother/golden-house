@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
 </head>
 <style>
     .body {
@@ -48,7 +48,7 @@ padding-top: 10px;
 </style>
 <body>
 <div class="body">
-    {%if request.user.username == object.user.username or request.user.username == 'admin' %}
+    {%if request.user.username == 'admin' %}
     <form action="" method="post">
         {% csrf_token %}
         <h2>Вы действительно хотите удалить ? </h2>

@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Update Flat</title>
 </head>
 <body>
-{%if request.user.username == object.user.username or request.user.username == 'admin' %}
-<form action="" method="post">
-    {%csrf_token%}
-    {{form.as_p}}
-    <input type="submit" value="yes">
+{% if request.user.username == object.Сотрудники.username or request.user.username == 'admin'%}
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Изменить">
 </form>
-{%else%}<a href="/flats/">на главную</a>
+{%else%} <a href="/flats/">на главный экран</a>
 {%endif%}
+
 </body>
 </html>

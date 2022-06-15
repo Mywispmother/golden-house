@@ -3,4 +3,4 @@ from . import models
 class FlatFilter(django_filters.FilterSet):
     class Meta:
         model = models.Flat
-        fields=['Адрес','Комнат','Район','user']
+        fields=['Район','Комнат','Цена','Сотрудники']
