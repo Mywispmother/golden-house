@@ -1,6 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+ТИП_ПРЕДЛОЖЕНИЯ = (
+    ("Собственник", "Собственник"),
+    ("Посредник", "Посредник"),
+)
+ТИП_ДОМА = (
+    ('Дом', 'Дом'),
+    ('Пол дома', 'Пол дома'),
+    ('Квартира', 'Квартира'),
+    ('Участок', 'Участок'),
+
+)
+
 
 class Flat(models.Model):
     район_выбор = (
@@ -20,6 +32,8 @@ class Flat(models.Model):
     Фото7 = models.ImageField('Фото', upload_to='', null=True, blank=True)
     Адрес = models.TextField()
     Район = models.CharField(max_length=20, choices=район_выбор, null=True, blank=True)
+    Тип = models.CharField('Тип предложения', max_length=20, choices=ТИП_ПРЕДЛОЖЕНИЯ, null=True, blank=True)
+    Тип_дома = models.CharField(max_length=20,choices=ТИП_ДОМА,null=True,blank=True )
     Дом = models.PositiveIntegerField()
     Подъезд = models.PositiveIntegerField()
     Этаж = models.IntegerField()
