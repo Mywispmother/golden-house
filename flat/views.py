@@ -34,7 +34,7 @@ class FlatAddView(LoginRequiredMixin,generic.CreateView):
     success_url = '/flats/'
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        form.instance.Сотрудники = self.request.user
         return super(FlatAddView, self).form_valid(form=form)
 
 
